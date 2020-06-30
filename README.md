@@ -8,10 +8,6 @@
 
 > Just another MERN application which uses passport-js local strategy for authorization and jwt strategy for authentication
 
-> ideally one sentence
-
-> include terms/tags that can be searched
-
 **Badges will go here**
 
 - build status
@@ -195,4 +191,4 @@ Reach out to me at one of the following places!
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
-- Copyright 2015 © <a href="http://fvcproductions.com" target="_blank">FVCproductions</a>.
+- Copyright 2020 ©
