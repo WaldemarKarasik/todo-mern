@@ -124,9 +124,6 @@ $ bower install
 
 ---
 
-
----
-
 ## Team
 
 > Or Contributors/People
@@ -145,15 +142,6 @@ $ bower install
 
 - **How do I do *specifically* so and so?**
     - No problem! Just do this.
-
----
-
-
-
----
-
-
-
 
 ---
 
