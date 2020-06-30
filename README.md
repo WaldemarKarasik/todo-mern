@@ -6,7 +6,7 @@
 
 # Todo MERN
 
-> Subtitle or Short Description Goes Here
+> Just another MERN application which uses passport-js local strategy for authorization and jwt strategy for authentication
 
 > ideally one sentence
 
