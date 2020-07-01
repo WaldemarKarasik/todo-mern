@@ -26,22 +26,18 @@ router.post("/register", (req, res) => {
         .status(500)
         .json({ message: { msgBody: "Server error", msgError: true } });
     if (foundUser)
-      return res
-        .status(400)
-        .json({
-          message: { msgBody: "Username is already taken", msgError: true },
-        });
+      return res.status(400).json({
+        message: { msgBody: "Username is already taken", msgError: true },
+      });
     const newUser = new User({ username, password, role });
     newUser.save((err, user) => {
       if (err)
         return res
           .status(500)
           .json({ message: { msgBody: "Server error", msgError: true } });
-      return res
-        .status(201)
-        .json({
-          message: { msgBody: "Account successfully created", msgError: false },
-        });
+      return res.status(201).json({
+        message: { msgBody: "Account successfully created", msgError: false },
+      });
     });
   });
 });
@@ -77,7 +73,7 @@ router.post(
       if (err)
         return res
           .status(500)
-          .json({ message: { msgBody: "Server error", msgError: true } });
+          .json({ message: { msgBody: "Name is required", msgError: true } });
       req.user.todos.push(newTodo);
       req.user.save((err) => {
         if (err)
@@ -85,14 +81,12 @@ router.post(
             .status(500)
             .json({ message: { msgBody: "Server error", msgError: true } });
         else
-          res
-            .status(201)
-            .json({
-              message: {
-                msgBody: "Todo successfully created",
-                msgError: false,
-              },
-            });
+          res.status(201).json({
+            message: {
+              msgBody: "Todo successfully created",
+              msgError: false,
+            },
+          });
       });
     });
   }
@@ -110,7 +104,11 @@ router.get(
             .status(500)
             .json({ message: { msgBody: "Server error", msgError: true } });
         else {
-          res.status(200).json({ todos: user.todos, authenticated: true });
+          res.status(200).json({
+            todos: user.todos,
+            authenticated: true,
+            message: { msgBody: null, msgError: false },
+          });
         }
       });
   }
@@ -121,11 +119,9 @@ router.get(
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     if (req.user.role != "admin")
-      return res
-        .status(403)
-        .json({
-          message: { msgBody: "You are not allowed here", msgError: true },
-        });
+      return res.status(403).json({
+        message: { msgBody: "You are not allowed here", msgError: true },
+      });
     res
       .status(200)
       .json({ message: { msgBody: "You are an admin", msgError: false } });

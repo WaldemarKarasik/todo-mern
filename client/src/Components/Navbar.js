@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
 import AuthService from "../Services/AuthService";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const Navbar = (props) => {
+  const history = useHistory();
   const { isAuthenticated, user, setIsAuthenticated, setUser } = useContext(
     AuthContext
   );
@@ -12,6 +14,7 @@ const Navbar = (props) => {
       if (data.success) {
         setUser(data.user);
         setIsAuthenticated(false);
+        history.push("/");
       }
     });
   };
@@ -55,12 +58,12 @@ const Navbar = (props) => {
     );
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-md navbar-light bg-light">
       <Link to="/">
         <div className="navbar-brand">MERN TODO</div>
       </Link>
       <div className="collapse navbar-collapse" id="navbarText">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav">
           {!isAuthenticated ? unauthenticatedLinks() : authenticatedLinks()}
         </ul>
       </div>

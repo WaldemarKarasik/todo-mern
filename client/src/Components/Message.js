@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-const getStyle = (props) => {
+const getStyle = (message) => {
   let baseClass = "alert ";
-  if (props.message.msgError) {
+  if (message.msgError) {
     baseClass += "alert-danger";
   } else {
-    baseClass += "alert-primary";
+    baseClass += "alert-success";
   }
   return baseClass + " text-center";
 };
+const showMessage = (message) => {
+  return message.msgBody;
+};
 
-const Message = (props) => {
+const Message = ({ message }) => {
   return (
-    <div className={getStyle(props)} role="alert">
-      {props.message.msgBody}
+    <div className={getStyle(message)} role="alert">
+      {showMessage(message)}
     </div>
   );
 };
