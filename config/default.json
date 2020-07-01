@@ -1,4 +1,4 @@
 {
-    "mongoUri": "mongodb+srv://komsomolradio:irkytsk87@cluster0-btftg.azure.mongodb.net/todo?retryWrites=true&w=majority",
+    "mongoUri": "mongodb+srv://<username>:<password>@cluster0-btftg.azure.mongodb.net/todo?retryWrites=true&w=majority",
     "port": 5000
   }
